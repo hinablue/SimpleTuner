@@ -10,6 +10,7 @@ logger.setLevel(target_level)
 
 is_optimi_available = False
 from helpers.training.optimizers.adamw_bfloat16 import AdamWBF16
+from helpers.training.optimizers.adamw_bf16_hinaadaptive import AdamWBF16_HinaAdaptive
 from helpers.training.optimizers.adamw_schedulefree import AdamWScheduleFreeKahan
 from helpers.training.optimizers.soap import SOAP
 
@@ -72,6 +73,15 @@ except:
 
 
 optimizer_choices = {
+    "adamw_bf16_hinaadaptive": {
+        "precision": "bf16",
+        "default_settings": {
+            "betas": (0.9, 0.999),
+            "weight_decay": 1e-2,
+            "eps": 1e-6,
+        },
+        "class": AdamWBF16_HinaAdaptive,
+    },
     "adamw_bf16": {
         "precision": "bf16",
         "default_settings": {

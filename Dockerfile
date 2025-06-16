@@ -61,7 +61,7 @@ RUN pip3 install "huggingface_hub[cli]"
 RUN pip3 install wandb
 
 # Clone SimpleTuner
-RUN git clone https://github.com/hinablue/SimpleTuner --branch release
+RUN git clone https://github.com/hinablue/SimpleTuner --branch hina
 # RUN git clone https://github.com/bghira/SimpleTuner --branch main # Uncomment to use latest (possibly unstable) version
 
 # Install SimpleTuner
